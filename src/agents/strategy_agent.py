@@ -3,7 +3,7 @@
 Handles all strategy-based trading decisions
 """
 
-from src.config import *
+from config import *
 import json
 from termcolor import cprint
 import anthropic

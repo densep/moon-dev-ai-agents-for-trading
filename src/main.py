@@ -3,17 +3,16 @@
 Main entry point for running trading agents
 """
 
-import os
 import sys
+import os
 from termcolor import cprint
 from dotenv import load_dotenv
 import time
 from datetime import datetime, timedelta
 from config import *
 
-# Add project root to Python path
-project_root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-sys.path.append(project_root)
+# Add the src directory to the Python path
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
 # Import agents
 from src.agents.trading_agent import TradingAgent
@@ -23,15 +22,15 @@ from src.agents.copybot_agent import CopyBotAgent
 from src.agents.sentiment_agent import SentimentAgent
 
 # Load environment variables
-load_dotenv()
+load_dotenv(override=True)
 
 # Agent Configuration
 ACTIVE_AGENTS = {
-    'risk': False,      # Risk management agent
-    'trading': False,   # LLM trading agent
-    'strategy': False,  # Strategy-based trading agent
+    'risk': True,      # Risk management agent
+    'trading': True,   # LLM trading agent
+    'strategy': True,  # Strategy-based trading agent
     'copybot': False,   # CopyBot agent
-    'sentiment': True, # Run sentiment_agent.py directly instead
+    'sentiment': False, # Run sentiment_agent.py directly instead
     # whale_agent is run from whale_agent.py
     # Add more agents here as we build them:
     # 'portfolio': False,  # Future portfolio optimization agent

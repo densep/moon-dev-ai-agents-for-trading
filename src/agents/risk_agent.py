@@ -37,19 +37,23 @@ or
 RESPECT_LIMIT: <detailed reason for each position>
 """
 
-import anthropic
+import sys
 import os
+import anthropic
 import pandas as pd
 import json
 from termcolor import colored, cprint
 from dotenv import load_dotenv
 from src import config
 from src import nice_funcs as n
-from src.data.ohlcv_collector import collect_all_tokens
+from src.data.ohlcv_collector import collect_all_tokens  # Ensure this function exists
 from datetime import datetime, timedelta
 import time
-from src.config import *
+from config import *
 from src.agents.base_agent import BaseAgent
+
+# Add the src directory to the Python path
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
 # Load environment variables
 load_dotenv()

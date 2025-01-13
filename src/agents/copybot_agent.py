@@ -16,8 +16,8 @@ from termcolor import colored, cprint
 from dotenv import load_dotenv
 from datetime import datetime, timedelta
 import time
-from src.config import *
-from src import nice_funcs as n
+from config import *
+from nice_funcs import *
 from src.data.ohlcv_collector import collect_all_tokens, collect_token_data
 
 # Data path for current copybot portfolio

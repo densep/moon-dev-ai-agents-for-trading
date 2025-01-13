@@ -44,6 +44,7 @@ from transformers import AutoTokenizer, AutoModelForSequenceClassification
 import numpy as np
 import openai
 from pathlib import Path
+from config import *
 
 # Create data directory if it doesn't exist
 pathlib.Path(DATA_FOLDER).mkdir(parents=True, exist_ok=True)
